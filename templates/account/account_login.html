@@ -1,0 +1,63 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" media="screen" href="/static/css/accountlogin.css">
+	<script src="/static/js/common.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div id="header">	
+  
+  <div id="logo-floater">
+     <h1>
+	<a href="/" title="The Book of Web Business">
+	  <img src="/static/image/logo.png" alt="The Book of Web Business" id="logo">
+	  <span>The Book of Web Business</span>
+ 	</a>
+     </h1>
+  </div>
+  	
+ </div>
+
+<div id="wrapper">
+
+<div id="content">
+ <h1>赶紧登录吧</h1>
+ <div class="loginform">
+  <form action="/account/signin/" method="post" onsubmit="return(isEmpty())">
+{% csrf_token %}
+	
+  <div class="item1">
+	<label>昵称</label>
+	<input name="username" type="text" class="basic-input">
+  </div>
+	
+  <div class="item1">
+	<label>密码</label>
+	<input name="password" type="password" class="basic-input">
+  </div>
+<!--   	
+  <div class="item2">
+	<input type="checkbox">
+	<label for="remember" class="remember">下次自动登录 ｜ </label>
+	<a href="/account/resetpassword/">忘记密码了</a>
+  </div> 
+-->
+  <div class="item2">
+    <input type="submit" value="登录" class="btn-submit">
+  </div>
+
+  </form>
+ </div>
+ 
+ <div class="aside">
+	<p class="pl">
+	  "-> 还没有webook帐号?"
+	  <a rel="nofollow" href="/account/register/">立即注册</a>
+	</p>
+ </div>
+</div>
+</div>
+
+</body>
+
+</html>

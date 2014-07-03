@@ -1,0 +1,246 @@
+body {
+	font: normal normal normal 12px/normal Arial, Helvetica, sans-serif;
+	line-height: 162%;
+	background-color: #444;
+	display: block;
+}
+
+#wangji_screen {
+	width: 950px;
+	margin: 20px auto;
+	text-align: left;
+	padding: 0 4px;
+	background-color: white;
+	-moz-border-radius: 7px;
+	-khtml-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	border-top-left-radius: 7px 7px;
+	border-top-right-radius: 7px 7px;
+	border-bottom-right-radius: 7px 7px;
+	border-bottom-left-radius: 7px 7px;
+}
+
+#header {
+	margin: 0px 0px 0px 200px;
+}
+
+#wrapper {
+	margin: 0px auto;
+	width: 950px;
+}
+
+#content {
+	min-height: 420px;
+	background-color: white;
+	padding: 40px 40px;
+	background-color: white;
+	-moz-border-radius: 7px;
+	-khtml-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	border-top-left-radius: 7px 7px;
+	border-top-right-radius: 7px 7px;
+	border-bottom-right-radius: 7px 7px;
+	border-bottom-left-radius: 7px 7px;
+}
+
+h1 {
+	color: #494949;
+	display: block;
+	font-size: 25px;
+	font-weight: bold;
+	line-height: 1.1;
+	margin: 0px;
+	padding: 0px 0px 15px;
+	word-wrap: break-word;
+}
+
+.loginform {
+	
+	float: left;
+	padding-right: 40px;
+	width: 590px;
+}
+
+form {
+	left: 0px;
+	position: relative;
+	top: 0px;
+}
+
+form {
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	display: block;
+}
+
+.item {
+	margin: 15px 0px 15px 10px;
+}
+
+.item1 {
+	margin: 15px 0px 15px 20px;
+}
+
+.item2 {
+	margin: 15px 0px 15px 90px;
+}
+
+label {
+	display: inline-block;
+	float: left;
+	font-size: 14px;
+	font-family: Tahoma;
+	cursor: default;
+	line-height: 30px;
+	margin-right: 15px;
+	text-align: right;
+	vertical-align: baseline;
+	width: 60px;
+}
+
+label.remember {
+	color: #666;
+	cursor: pointer;
+	display: inline;
+	float: none;
+	font-size: 12px;
+	margin: 0px;
+	text-align: left;
+	width: auto;
+}
+
+.basic-input {
+	border: 1px solid #C9C9C9;
+	border-bottom-left-radius: 3px 3px;
+	border-bottom-right-radius: 3px 3px;
+	border-top-left-radius: 3px 3px;
+	border-top-right-radius: 3px 3px;
+	font-size: 14px;
+	height: 28px;
+	padding: 5px;
+	width: 200px;
+}
+
+input {
+	margin-right: 3px;
+	vertical-align: middle;
+}
+
+a:link {
+	color: #7991b3;
+	text-decoration: none;
+}
+
+.btn-submit {
+	background: #6f5423;
+	border: 1px solid #528641;
+	border-bottom-left-radius: 3px 3px;
+	border-bottom-right-radius: 3px 3px;
+	border-top-left-radius: 3px 3px;
+	border-top-right-radius: 3px 3px;
+	color: white;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 6px 26px;
+	
+}
+
+.aside {
+	float: right;
+	width: 310px;
+}
+
+.pl {
+	margin-top: -100px;
+	margin-left: 75px;
+	color: #666;
+	font: normal normal normal 12px/normal Arial, Helvetica, sans-serif;
+	line-height: 150%;
+}
+
+p {
+	display: block;
+	margin: 1em 0px;
+}
+
+.suggestion {
+	margin-left: 90px;
+}
+
+.btn-register {
+	padding-top: 10px;
+	margin-left: 180px;
+}
+
+.saveform {
+	border: 1px solid #618854;
+	background: #f0f4f8;
+	color: #787878;
+	margin: -20px 200px 20px 50px;
+	padding: 0px;
+	position: relative;
+	text-align: left;
+	zoom: 1;
+}
+
+.saveform fieldset {
+	border: 0px;
+	padding: 2em 10px;
+	width: 700px;
+	margin-left: 50px;
+	display: block;
+	position: relative;
+	zoom: 1;
+}
+
+.saveform input {
+	padding: 3px 5px;
+	width: 378px;
+}
+
+.saveform textarea {
+	border: 1px solid #C9C9C9;
+	border-bottom-left-radius: 3px 3px;
+	border-bottom-right-radius: 3px 3px;
+	border-top-left-radius: 3px 3px;
+	border-top-right-radius: 3px 3px;
+	font-size: 14px;
+	padding: 5px;
+}
+
+.saveform .field input {
+	position: relative;
+	margin-left: -170px;
+	margin-top: 7px;
+	margin-bottom: 15px;
+}
+
+
+.saveform .field label {
+	color: black;
+	display: block;
+	padding: 0px;
+	position: relative;
+	text-align: right;
+	width: auto;
+	margin: 0px 0px 0px 16px;
+}
+
+.saveform .site-save {
+	/*border-top: 1px solid #C9C9C9;*/
+}
+
+.saveform .site-save input {
+	width: 60px;
+	position: relative;
+	margin-top: 10px;
+	margin-left: 400px;
+}
+
+.topword {
+	margin: 0px 0px 10px 100px;
+}

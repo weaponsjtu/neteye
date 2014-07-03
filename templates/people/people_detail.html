@@ -1,0 +1,84 @@
+<html>
+
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/site-detail.css">
+
+<body>
+
+<div id="wangji_screen">
+<div id="header">	
+  
+  <div id="logo-floater">
+     <h1>
+	<a href="/" title="The Book of Web Business">
+	  <img src="/static/image/logo.png" alt="The Book of Web Business" id="logo">
+	  <span>The Book of Web Business</span>
+ 	</a>
+	<span id="login-botton">
+          <a href="/account/signup/" style="font-size=18px; margin-left=400px">退出</a>
+	</span>
+     </h1>
+  </div>
+  	
+ </div>
+
+
+<div id="wrapper">
+ <div>
+
+  <div class="topword"> 
+	<strong>
+	  {{ object.username }} 's Bookmarks
+	</strong>
+    <a class="btn-share" rel="nofollow" href="/sharesite/{{ object.id }}/add/">分享我的网页</a>
+  </div>
+
+{% for site in object.onesite_set.all %}
+  <ul id="bookmarklist" class="bookmarks">
+        <li class="post">
+		  <div class="bookmark">
+			<span></span>
+			<div class="data">
+			  <h4>
+			   <a rel="nofollow" href="/sharesite/{{ site.id }}/">{{ site.title }}</a>	
+			  </h4>	
+			</div>
+		  </div>
+		  <h4>{{ site.info }}</h4>
+	</li>
+    </ul>
+{% endfor %}
+ </div>
+
+
+
+ <div class="user-comments">
+	<h3>网友评论,共有{{ object.messageboard_set.count }}条</h3>
+{% for Message in object.messageboard_set.all %}
+	<ul class="simple-list">
+	  <li class="clearfix">
+         <div class="comment">
+			<div>
+				<b>{{ Message.user }}</b>发表于 {{ Message.pub_date }}
+			</div>
+			<div>{{ Message.content }}</div>
+   		 </div>
+		</li> 
+	</ul>
+{% endfor %}
+
+<form action="/people/{{ object.id }}/message/" method="post">
+{% csrf_token %}
+<h3>说点什么</h3>
+<textarea name="info" rows="6" cols="60" required=true></textarea>
+<input type="submit" value="保存" class="btn-submit">
+</form>
+ </div>
+ </div>
+ 
+</div>
+
+</div>
+
+</body>
+
+</html>

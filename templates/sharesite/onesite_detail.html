@@ -1,0 +1,123 @@
+<html>
+
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/site-detail.css">
+
+<body>
+
+<div id="wangji_screen">
+
+ <div id="header">	
+  
+  <div id="logo-floater">
+     <h1>
+	<a href="/" title="The Book of Web Business">
+	  <img src="/static/image/logo.png" alt="The Book of Web Business" id="logo">
+	  <span>分享您喜欢的网站，让网络生活丰富多彩...</span>
+ 	</a>
+       <!--<span id="login-botton">	
+    	<a href="{{ label2 }}">{{ label1 }}</a>
+        |
+        <a href="{{ label4 }}">{{ label3 }}</a>
+        </span>-->
+     </h1>
+  </div>
+  	
+ </div>
+
+<!--
+<div class="topsu">
+  <div class="bd">
+	<div class="topsu-info">
+		<a href="{{ label2 }}">{{ label1 }}</a>
+   		<a href="{{ label4 }}">{{ label3 }}</a>
+	</div>
+	<div class="topsu-items">
+	  <ul>
+		<li>
+		  <a href="#">娱乐网集</a>
+		</li>
+		<li>
+		  <a href="#">技术网集</a>
+		</li>
+		<li>
+		  <a href="#">YY网集</a>
+		</li>
+		<li>
+		  <a href="#">科研网集</a>
+		</li>
+		<li>
+		  <a href="#">文艺网集</a>
+		</li>
+	  </ul>
+	</div>
+  </div>
+</div>
+-->
+
+<div id="wrapper">
+  <div class="site-info">
+   <img src="{{ object.logo }}">  
+   <h2>{{ object.title }}</h2>
+   
+   <span>
+	 <span class="pl">网址</span>	
+	  :  
+	 <a href="{{ object.domain }}" target="_black">{{ object.domain }}</a>	
+   </span>
+   <br>
+   <span>
+	<span class="pl">标签</span>
+	:
+	{{ object.tags }}
+   </span>
+   <br>
+   <span>
+	 <span class="pl">市值</span>
+	  : 
+	 {{ object.value }} 
+   </span>
+   <br>
+   <span>
+	 <span class="pl">简介</span>
+	  : 
+	 {{ object.info }} 
+   </span>
+   <br>
+   <span>
+	 <span class="pl">攻略</span>
+	  : 
+	 {{ object.skill }} 
+   </span>	
+  </div>
+
+  <div class="comments">
+	<h3>网友评论....(共有{{ object.comments_set.count }}条)</h3>
+{% for comment in object.comments_set.all %}
+	
+	<ul class="simple-list">
+	  <li class="clearfix">
+         <div class="comment"> 
+			<div>
+				<b>{{ comment.user }}</b>    {{ comment.pub_date }}
+			</div>
+			<div>{{ comment.content }}</div>
+         </div>
+	  </li> 
+    </ul>
+	
+{% endfor %}
+  </div>
+ <div>
+  <form action="/sharesite/{{ object.id }}/evaluate/" method="post">
+  {% csrf_token %}
+  <h3>说点什么</h3>
+  <textarea name="comment" rows="6" cols="60" required=true></textarea>
+  <input type="submit" value="保存" class="btn-submit">
+  </form>
+ </div>
+</div>
+
+</div>
+</body>
+
+</html>

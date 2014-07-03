@@ -1,0 +1,165 @@
+<html>
+
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/site-list.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/addsite.css">
+<link rel="icon" href="/static/favicon.ico" mce_href="/favicon.ico" type="image/x-icon">
+
+	<script  type="text/javascript">
+		function $(str) {
+			return(document.getElementById(str));
+		} 
+		function isEmpty() {
+			var db = 1;
+			if ($("saveTitle1").value == ""){
+				db = 0;
+			}
+			if ($("saveURL").value == ""){
+				db = 0;
+			}
+			if ($("saveInfo").value == ""){
+				db = 0;
+			}
+			if( !db ){
+				alert("将您的信息输入完整吧!");
+				return false;
+			}
+		}
+    </script>
+
+<body>
+
+<div id="wangji_screen">
+
+<div id="list_page">
+
+ <div id="header">	
+  
+  <div id="logo-floater">
+     <h1>
+	   <a href="/" title="The Book of Web Business">
+	     <img src="/static/image/logo.png" alt="The Book of Web Business" id="logo">
+	     <span>分享您喜欢的网站，让网络生活丰富多彩...</span>
+ 	   </a>
+     </h1>
+	 
+  </div>
+   	
+ </div>
+
+ <div class="site-broadcast">		
+    网站公告: 留下您宝贵的意见，点击<a  href="/siteinfo">这里</a>. 今天加上了用户登录注册这个模块，大家可以收藏自己喜欢的网站了.
+ </div> 
+	
+ <div>
+  <form action="/sharesite/result/" method="post">
+  {% csrf_token %}
+  <div class="topsu">
+    <div class="bd">
+	 <div class="topsu-items">
+	  <ul>
+		<li>
+		  <a href="/">首页</a>
+		</li>
+		<li>
+		  <a href="/0">游戏</a>
+		</li>
+		<li>
+		  <a href="/1">音乐</a>
+		</li>
+		<li>
+		  <a href="/2">电影</a>
+		</li>
+		<li>
+		  <a href="/3">学习</a>
+		</li>
+		<li>
+		  <a href="/4">生活</a>
+		</li>
+		<li>
+		  <a href="/5">其它</a>
+		</li>
+		<li>
+			<input name="searchbox" class="search-input" type="text" value autocomplete="off">
+			<input class="btn-submit" type="submit" value="Search">
+		</li>
+	  </ul>
+	</div>
+  </div>
+</div>
+</form>
+</div>
+
+<div class="topword">	
+	<h3>分享我喜爱的网站</h3>
+   </div>
+   <div class="saveform">
+	<form action="/sharesite/addsite/" method="post" onsubmit="return(isEmpty())">
+	{% csrf_token %}
+		<fieldset>
+			<div>
+				<input name="userid" type="hidden" value={{objectid}}>
+			</div>
+			<div class="item">
+			     <h3>网站类型</h3>
+				 <select name="tags" class="tags">
+					 <option value ="game">游戏</option>
+  					 <option value ="music">音乐</option>
+  					 <option value="video">电影</option>
+  					 <option value="study">学习</option>
+					 <option value="life">生活</option>
+					 <option value="others">其它</option>
+				 </select>
+				 <!--<select name="tags-child">
+					 <option value ="game">Game</option>
+  					 <option value ="music">Music</option>
+  					 <option value="video">Video</option>
+  					 <option value="study">Study</option>
+					 <option value="others">Others</option>
+				 </select> -->
+			     <!--<input class="basic-input" name="selTags" type="text" size="10" value autocomplete="off" width="10">-->
+
+			</div>
+			<div class="item">
+				<h3>网站标题</h3>
+				<input class="basic-input" id="saveTitle1" name="saveTitle" type="text" size="60" value autocomplete="off"> 		        <span style="color: red; font-size: 20px">*</span>
+				
+			</div>
+			<div class="item">
+				<h3>网站域名URL</h3>
+				<input class="basic-input" id="saveURL"  name="saveURL" type="text" size="60" value autocomplete="off"> 	
+				<span style="color: red; font-size: 20px"">*</span>
+			</div>
+			<div class="item">
+				<h3>最能表现您喜爱的网站的图片URL</h3>
+				<input class="basic-input" id="saveLogoURL" name="saveLogoURL" type="text" size="60" value autocomplete="off">
+			</div>
+			<div class="item">
+				<h3>用一两句话介绍一下您的网站...</h3>
+				<textarea id="saveInfo" name="saveInfo" cols="35" rows="4"></textarea> <span style="color: red; font-size: 20px"">*</span>
+			</div>
+			<div class="item" class="item-label">
+				<h3>您希望大家用这个网站干些什么...</h3>
+				<textarea id="saveSkill"  name="saveSkill" cols="35" rows="4"></textarea>
+			</div>
+			<!--<div class="field">
+				<input class="checkbox" id="savePrivate" type="checkbox">
+				<label for="savePrivate">Make private</label>
+			</div>-->
+			<div class="site-save">
+				<input class="btn-submit1" type="submit" value="分享">
+			</div>
+		</fieldset>
+	</form>
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>2011 Powered by <a href="http://mkdreamt415.appspot.com" target="_black">Weapon</a> @SJTU </h3>	
+</div>
+
+
+
+</div>
+</body>
+</html>

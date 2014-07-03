@@ -1,0 +1,210 @@
+<html>
+<head>
+<link rel="icon" href="/static/favicon.ico" mce_href="/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/site-list.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/bootstrap-responsive.min.css">
+
+<script type="text/javascript">
+	function share() {
+		var str = document.getElementById("exitOrReg").value;
+		if (str == "退出") {
+			alert("已成功添加到你的分享!");
+		}
+	}
+</script>
+
+</head>
+<body>
+
+<div id="wangji_screen">
+
+<div id="list_page">
+
+ <div id="header">	
+  
+  <div id="logo-floater">
+     <h1>
+	   <a href="/" title="The Book of Web Business">
+	     <img src="/static/image/logo.png" alt="The Book of Web Business" id="logo">
+	     <span>分享您喜欢的网站，让网络生活丰富多彩...</span>
+		 
+ 	   </a>
+       <span id="login-botton">	
+    	   <a href="{{ label2 }}">{{ label1 }}</a>
+          |
+		  {% if label5 %} 
+				 <a href="{{ label2 }}">{{ label5 }}</a> |
+	      {% endif %}	
+		  
+          <a href="{{ label4 }}">{{ label3 }}</a>
+		 <input  id="exitOrReg" type="hidden" value="{{ label3 }}">	
+        </span>
+     </h1>
+	 
+  </div>
+   	
+ </div>
+
+
+
+ <div class="site-broadcast">		
+    网站公告: 留下您宝贵的意见，点击<a  href="/siteinfo">这里</a>.   现在大家可以将优秀的网站<span style="color: red">添加到自己的个人空间分享</span>里了，还等什么，赶快逛逛吧...
+ </div> 
+	
+ <div>
+  <form action="/sharesite/result/" method="post">
+  {% csrf_token %}
+  <div class="topsu">
+    <div class="bd">
+	 <div class="topsu-items">
+	  <ul>
+		<li>
+		  <a href="/">首页</a>
+		</li>
+		<li>
+		  <a href="/0">游戏</a>
+		</li>
+		<li>
+		  <a href="/1">音乐</a>
+		</li>
+		<li>
+		  <a href="/2">电影</a>
+		</li>
+		<li>
+		  <a href="/3">学习</a>
+		</li>
+		<li>
+		  <a href="/4">生活</a>
+		</li>
+		<li>
+		  <a href="/5">其它</a>
+		</li>
+		<li>
+			<input name="searchbox" class="search-input" type="text" value autocomplete="off">
+			<input class="btn-submit" type="submit" value="Search">
+		</li>
+	  </ul>
+	</div>
+  </div>
+</div>
+</form>
+</div>
+
+<!-- yu lu 
+<div id="ana">
+	<div id="ana_title">经典语录</div>
+	  <div id="ana_refer">
+       <script type="text/javascript" charset="UTF-8" src="http://www.yulu.info/javascript.asp">
+			var specialcode="<DIV id=ana_refer style='Z-INDEX: 100; left: 1px; POSITION: absolute; TOP: 50px;'><TABLE cellSpacing=0 cellPadding=0 width=145 style='font-size:14px;color:#000000'><TR><TD style='CURSOR: hand' onclick=searchspe.style.visibility='hidden' align='center' width=145>关 闭</TD></TR></TABLE><table border='0' width='145' id='table1' bordercolor='#2E6287' height='95'><tr><td><a href='xunji/index.html' target='_blank'><img src='images/layout/ad_xunji.gif' width='145' height='95' border='0' /></a></td></tr></table></DIV>";document.write(specialcode);lastScrollY=0;function heartBeat0(){diffY=document.body.scrollTop;percent=.1*(diffY-lastScrollY);if(percent>0)percent=Math.ceil(percent);else percent=Math.floor(percent);document.all.searchspe.style.pixelTop+=percent;lastScrollY=lastScrollY+percent;}window.setInterval("heartBeat0()",1);
+		</script>
+      </div>
+</div>	-->
+
+<div id="sidebar">
+   <div class="sideGrp">
+	 <div class="side-share">
+		<a href="/sharesite/1/add/"><h3 class="share_button">匿名分享网站</h3></a>
+	 </div>
+
+	 <div class="day-commend">
+		<h3 class="day-shema">今日推荐</h3>
+		<div class="day-content">
+			<h2><a rel="nofollow" href="/sharesite/17/">MapCrunch -- Random Google Street View</a></h2>
+			<h4>MapCrunch 这个迷人的网站能够随机带你逛遍全球美景。进入网站首页，全球某一个地方的美图就会随机出现在你眼前，拉动图片上的箭头就会三维空间移动。让你仿佛身临其境，流连忘返。右侧栏里有地名供你选择，让你有目的性的选择参观地。再点击右下方的“GO”就可以足不出户纵览世界美景。</h4>
+		</div>
+	 </div>	
+
+	 <div class="day-popular">
+		<h3 class="day-shema">最新分享</h3>
+		<div class="day-content">
+			<ul>
+				{% for object in objectlist.object_list %}
+				<li><a rel="nofollow" href="/sharesite/{{ object.id }}/">{{ object.title }}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+	 </div>
+   </div>
+</div>
+
+
+
+<div class="fb">  
+	
+
+	<a class="random-access" href="/sharesite/{{ randnum }}/">Go To a Random Website</a>
+    <ul id="bookmarklist" class="bookmarks">
+    {% for object in objectlist.object_list %}
+        <li class="post first bookmark-0">
+		  <div class="bookmark">
+			<div class="title">
+			  <h2>
+			    <a rel="nofollow" href="/sharesite/{{ object.id }}/">{{ object.title }}</a>
+	                   
+			   <span class="saverem">
+				<em class="bookmark-actions">
+				  <strong>
+					<a class="inlinesave" href="/sharesite/{{ object.id }}/share/" onclick="share()">Share</a>
+				  </strong>
+				</em>
+			   </span>
+			  </h2>
+			  <div id="title-fix">
+				<span class="author">Published by <b>{{ object.user }}</b></span>
+				<span class="comments">{{ object.comments_set.count }} 条评论 > </span>
+			  </div>	
+			</div>
+			<div class="date">
+			   <span>
+					{{ object.pub_date.year }}
+				</span>
+			   <span>
+					{{ object.pub_date.month }}.{{ object.pub_date.day }}
+				</span>	
+			</div>
+		  </div>
+ 		  
+		  <h4>{{ object.info }}</h4>
+		<div> 
+	       <a href="{{ object.domain }}" target="_black">
+		    <div class="domain">
+			  霸气顶入: {{ object.domain }}
+		    </div>
+  	       </a>
+          </div>
+		</li>
+    {% endfor %}
+    </ul>
+
+
+    <div class="pagination">
+     <span class="step-links">
+        {% if objectlist.has_previous %}
+            <a href="?page={{ objectlist.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ objectlist.number }} of {{ objectlist.paginator.num_pages }}.
+        </span>
+
+        {% if objectlist.has_next %}
+            <a href="?page={{ objectlist.next_page_number }}">next</a>
+        {% endif %}
+     </span>
+    </div>
+</div>
+
+
+</div>
+
+<div class="footer">
+    <h3>2011 Powered by <a href="http://www.cnblogs.com/dugujiujian/" target="_black">Weapon</a> @SJTU </h3>	
+</div>
+
+
+
+</div>
+</body>
+</html>

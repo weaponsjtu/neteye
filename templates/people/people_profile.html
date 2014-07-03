@@ -1,0 +1,163 @@
+<html>
+
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/site-list.css">
+
+<link rel="icon" href="/static/favicon.ico" mce_href="/favicon.ico" type="image/x-icon">
+
+	<script  type="text/javascript">
+		function $(str) {
+			return(document.getElementById(str));
+		} 
+		function isEmpty() {
+			var db = 1;
+			if ($("info").value == ""){
+				db = 0;
+			}
+
+			if( !db ){
+				alert("将您的信息输入完整吧!");
+				return false;
+			}
+		}
+    </script>
+
+<body>
+
+<div id="wangji_screen">
+
+<div id="list_page">
+
+ <div id="header">	
+  
+  <div id="logo-floater">
+     <h1>
+	   <a href="/" title="The Book of Web Business">
+	     <img src="/static/image/logo.png" alt="The Book of Web Business" id="logo">
+	     <span>分享您喜欢的网站，让网络生活丰富多彩...</span>
+ 	   </a>
+       <span id="login-botton">
+          <a href="/account/signup/" style="font-size=18px; margin-left=400px">退出</a>
+	</span>
+     </h1>
+	 
+  </div>
+   	
+ </div>
+	
+ <div>
+  <div class="topsu">
+    <div class="bd">
+	 <div class="topsu-items">
+	  <ul>
+		<li class="firstli">
+		  <strong>
+	         {{ object.username }} 's Bookmarks
+	      </strong>
+		</li>
+		<li>
+		   <a href="/people/{{ object.id }}/saved">Saved</a>
+		</li>
+		<li>
+		   <a href="/people/{{ object.id }}/share">Shared</a>
+		</li>
+	  </ul>
+	</div>
+  </div>
+</div>
+
+</div>
+
+<div id="sidebar">
+   <div class="sideGrp">
+	 <div class="side-share">
+		<a href="/sharesite/{{ object.id }}/add/"><h3 class="share_button" style="color: #4fd">分享我的网页</h3></a>
+	 </div>
+	 <div class="day-popular">
+		 <div class="user-comments">
+			<h3 class="day-shema">网友评论,共有{{ object.messageboard_set.count }}条</h3>
+			
+			<ul class="simple-list">
+              {% for Message in object.messageboard_set.all %}
+	  		 <li class="clearfix">
+        	  <div class="comment">
+				<div>
+					<b>{{ Message.user }}</b>发表于 {{ Message.pub_date }}
+				</div>
+			    <div>{{ Message.content }}</div>
+   		     </div>
+		   </li> 
+             {% endfor %}
+	    </ul>
+
+
+          <form action="/people/{{ object.id }}/message/" method="post" class="comment-form" onsubmit="return(isEmpty())">
+	       {% csrf_token %}
+		    <div>
+				Comments
+			</div> 
+ 
+				<textarea id="info" name="info" rows="10" cols="20" required=true></textarea>
+
+
+				<input type="submit" value="保存" class="btn-submit">
+
+	     </form>
+        </div>
+	 </div>
+   </div>
+</div>
+
+
+<div class="fb">  
+    <ul id="bookmarklist" class="bookmarks">
+    {% for object in site_list %}
+        <li class="post first bookmark-0">
+		  <div class="bookmark">
+			<div class="title">
+			  <h2>
+			    <a rel="nofollow" href="/sharesite/{{ object.id }}/">{{ object.title }}</a>
+	            <!--<a href="" class="edit-site">Edit</a>-->       
+			  </h2>
+			  <div id="title-fix">
+				<span class="author">Published by <b>{{ object.user }}</b></span>
+				<span class="comments">{{ object.comments_set.count }} 条评论 > </span>
+			  </div>	
+			</div>
+			<div class="date">
+			   <span>
+					{{ object.pub_date.year }}
+				</span>
+			   <span>
+					{{ object.pub_date.month }}.{{ object.pub_date.day }}
+				</span>	
+			</div>
+		  </div>
+	
+		  <h4>{{ object.info }}</h4>
+		<div> 
+	       <a href="{{ object.domain }}" target="_black">
+		    <div class="domain">
+			  霸气顶入: {{ object.domain }}
+		    </div>
+  	       </a>
+          </div>
+		</li>
+    {% endfor %}
+    </ul>
+</div>
+
+
+
+
+
+</div>
+
+<div class="footer">
+    <h3>2011 Powered by <a href="http://mkdreamt415.appspot.com" target="_black">Weapon</a> @SJTU </h3>	
+</div>
+
+
+
+</div>
+</body>
+</html>

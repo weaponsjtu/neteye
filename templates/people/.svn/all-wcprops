@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/2/templates/people
+END
+people_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/2/templates/people/people_list.html
+END
+people_profile.html
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/2/templates/people/people_profile.html
+END
+people_detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/2/templates/people/people_detail.html
+END

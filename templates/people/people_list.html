@@ -1,0 +1,13 @@
+{% if object_list %}
+    <ul>
+    {% for object in object_list %}
+        <li><a href="/people/{{ object.id }}/">{{ object.username }}</a></li>
+		<h4>{{ object.password }}</h4>
+		<h3>{{ object.id }}</h3>
+    {% endfor %}
+    </ul>
+	
+{% else %}
+    <p>No objects are available.</p>
+{% endif %}
+<a href="/admin/">admin</a>

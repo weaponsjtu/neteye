@@ -1,0 +1,50 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" media="screen" href="/static/css/accountlogin.css">
+	<script src="/static/js/common.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div id="header">	
+  
+  <div id="logo-floater">
+     <h1>
+	<a href="/" title="The Book of Web Business">
+	  <img src="/static/image/logo.png" alt="The Book of Web Business" id="logo">
+	  <span>The Book of Web Business</span>
+ 	</a>
+     </h1>
+  </div>
+  	
+ </div>
+
+<div id="wrapper">
+<div id="content">
+<h1>欢迎加入 Webook</h1>
+<form action="/account/registerUser/" method="post" class="loginform" onsubmit="return(isEmpty())">
+	{% csrf_token %}
+	<div class="item">
+		<label>邮箱</label>
+		<input class="basic-input" id="email" name="form_email" type="text" maxlength="60">
+	</div>
+	<div class="item">
+		<label>密码</label>
+		<input class="basic-input" d="password" name="form_password" type="password" maxlength="20">
+	</div>
+	<div class="item">
+		<label>昵称</label>
+		<input class="basic-input" id="name" name="form_name" type="text" maxlength="15">
+	</div>
+	<div class="suggestion">
+		<span>第一印象很重要，起个霸气的名号吧</span>
+	</div>
+	<div class="btn-register">
+		<input type="submit" value="注册" class="btn-submit" tabindex="6">
+	</div>
+</form>
+</div>
+
+</div>
+</body>
+
+</html>

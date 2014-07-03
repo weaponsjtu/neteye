@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/2/templates/sharesite
+END
+onesite_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/6/templates/sharesite/onesite_list.html
+END
+top.html
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/2/templates/sharesite/top.html
+END
+onesite_detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/2/templates/sharesite/onesite_detail.html
+END
+site_add.html
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/2/templates/sharesite/site_add.html
+END
+addsite.html
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/2/templates/sharesite/addsite.html
+END
+footer.html
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/2/templates/sharesite/footer.html
+END
+siteinfo.html
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/2/templates/sharesite/siteinfo.html
+END
